@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Chris' Handlebars</title>
+  </head>
+  <body>
+    <!-- We will insert into this div -->
+    <div id="main" class="images-container"></div>
+
+    <!-- Our Handlebars Source Template -->
+    <script id="source" type="text/x-handlebars-template">
+      <!-- 'this' would be the outer object in my result but what i need to access is results. 'this' is mostly used whe  your data is directly an array -->
+      {{#each results}}
+        <div class="image">
+          <figure class='container'>
+
+            <header>
+              <div class="half">
+                <h2>{{description this}}</h2>
+              </div>
+
+              <div class="half">
+                <a href="{{links.html}}" target="_blank">View</a>
+              </div>
+            </header>
+
+            <div class="img-container">
+              <div class="overlay">
+                <div class="overlay-text">Liked {{likes}} times</div>
+              </div>
+              <img src="{{urls.small}}" alt="{{description this}}"/>
+            </div>
+
+          </figure>
+        </div>
+      {{/each}}
+    </script>
+
+    <!-- Load Handlebars -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+    <!-- The Magic -->
+    <script src="main.js"></script>
+  </body>
+</html>
